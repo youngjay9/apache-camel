@@ -16,6 +16,7 @@ public class ActiveMQSenderRouter extends RouteBuilder {
     from("timer:active-mq-timer?period=10000")
         // 製造固定的訊息
         .transform().constant("Jay Message For MQ")
+        .log("${body}")
         // 將訊息放至 queue
         .to("activemq:jay-queue");
 
