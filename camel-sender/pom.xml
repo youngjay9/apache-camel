@@ -54,6 +54,13 @@
       <version>${camel.version}</version>
     </dependency>
 
+    <!-- CSV route -->
+    <dependency>
+      <groupId>org.apache.camel.springboot</groupId>
+      <artifactId>camel-csv-starter</artifactId>
+      <version>${camel.version}</version>
+    </dependency>
+
 
     <dependency>
       <groupId>org.springframework.boot</groupId>
