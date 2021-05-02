@@ -4,6 +4,10 @@ import org.apache.camel.builder.RouteBuilder;
 import org.springframework.stereotype.Component;
 
 //@Component
+
+/**
+ * EIP multicast 模式：把 endpoint from 的內容 endpoint to 不同的地方
+ */
 public class EipPatternMulticastRouter extends RouteBuilder {
 
   @Override

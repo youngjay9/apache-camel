@@ -6,6 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 //@Component
+/**
+ * EIP ContentBased 模式：根據 endpoint from 的內容做判斷, 看要 endpoint to 哪裏
+ */
 public class EipPatternContentBasedRouter extends RouteBuilder {
 
   @Autowired
@@ -26,10 +29,11 @@ public class EipPatternContentBasedRouter extends RouteBuilder {
         .when(simple("${body} contains 'USD'")) // 使用 simple language 判斷檔案內容是否包含 'USD'
             .log("not xml file but contains 'USD'")
         .when(method(deciderBean)) // 將上面的 simple language 改成共用的 bean 去判斷
+             // 符合 deciderBean 後要做的事
         .otherwise()
             .log("not xml file")
         .end()
-        .to("direct://log-file-values") // route to a reusable writing log content endpoint
-        .to("file:/Users/jay/Git_Repository/apache-camel/camel-sender/files/output"); // route file to another folder
+        .to("direct://log-file-values") // endpoint to a reusable writing log content endpoint
+        .to("file:/Users/jay/Git_Repository/apache-camel/camel-sender/files/output"); // file to another folder
   }
 }
