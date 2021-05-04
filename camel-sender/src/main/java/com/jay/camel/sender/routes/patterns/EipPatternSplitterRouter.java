@@ -5,7 +5,7 @@ import org.apache.camel.builder.RouteBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-@Component
+//@Component
 /**
  * EIP splitter 模式：endpoint from 的內容 split 再 endpoint to anywhere
  */
